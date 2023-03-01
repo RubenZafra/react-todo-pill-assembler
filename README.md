@@ -2,9 +2,9 @@
 
 To Do list made with Vite and React. CSS Modules. Saves to local storage, filter buttons to show All, Active and Completed tasks. All styles update with the color picker automatically.
 
-## npm install 
+## 1. npm install 
 
-## npm run dev
+## 2. npm run dev
 
 ### Light Mode
 
