@@ -1,6 +1,5 @@
-# react-todo-pill-assembler
 
-To Do list made with Vite and React. CSS Modules.
+To Do list made with Vite and React. CSS Modules. Saves to local storage, filter buttons to show All, Active and Completed tasks. 
 
 ## npm install 
 
