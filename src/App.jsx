@@ -20,12 +20,37 @@ function App() {
   const [editedTask, setEditedTask] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
+  const [filteredTasks, setFilteredTasks] = useState(tasks)
+  const [mode, setMode] = useState('All')
+
   const addTask = (task) => {
     setTasks(prevState => [...prevState, task])
   }
 
   const deleteTask = (id) => {
     setTasks(prevState => prevState.filter(t => t.id !== id));
+  }
+
+  const showAll = () => {
+    setMode('All')
+    setFilteredTasks(tasks)
+  }
+
+  const showActive = (tasks) => {
+    setMode('Active')
+    const activeTasks = ([...tasks].filter(task => task.checked === false))
+    setFilteredTasks(activeTasks);
+  }
+
+  const showComplete = (tasks) => {
+    setMode('Complete')
+    const deletedTasks = [...tasks].filter(task => task.checked === true)
+    setFilteredTasks(deletedTasks)
+  }
+
+  const deleteComplete = (tasks) => {
+    setMode('All')
+    setTasks([...tasks].filter(task => task.checked === false))
   }
 
   const toggleTask = (id) => {
@@ -71,10 +96,17 @@ function App() {
         )
       }
       <CustomForm addTask={addTask}/>
-      <FilterButtons />
+      <FilterButtons 
+          showAll={showAll}
+          mode={mode}
+          showActive={showActive} 
+          showComplete={showComplete} 
+          deleteComplete={deleteComplete}
+          tasks={tasks}
+          />
       {!tasks.length == 0 ? (
         <TaskList
-          tasks={tasks}
+          tasks={filteredTasks}
           deleteTask={deleteTask}
           toggleTask={toggleTask}
           enterEditMode={enterEditMode}
