@@ -6,6 +6,11 @@ To Do list made with Vite and React. CSS Modules. Saves to local storage, filter
 
 ## 2. npm run dev
 
+### Features 
+
+#### Filter by `all`, `active`, `completed` or `clear completed`
+#### The tasks are saved on your localStorage so when you reopen the site, all the tasks remain as they were when you close it. 
+
 ### Light Mode
 
 <img width="973" alt="image" src="https://user-images.githubusercontent.com/90968035/222156306-848c5608-6b16-4399-880b-6f0541d2494f.png">
